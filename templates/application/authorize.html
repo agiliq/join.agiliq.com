@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="{% url oauth_app_authorize %}" method="post">{% csrf_token %}
+  {{ form }}
+  <input type="submit" name="authorized" value="Confirm" />
+  <input type="submit" name="authorized" value="Reject" />
+</form>
+{% endblock %}

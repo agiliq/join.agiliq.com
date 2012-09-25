@@ -1,0 +1,4 @@
+Name of the applicant: {{ resume.user_profile.user.get_full_name }}
+Applicant Email: {{ resume.user_profile.user.email }}
+Resume URL: {{ resume.resume.url }}
+
