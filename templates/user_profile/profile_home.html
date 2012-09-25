@@ -3,8 +3,11 @@
 {% block content %}
 <p>Logged in as {{ user.email }}</p>
 <a href="{% url auth_logout %}">Logout</a>
-{% for application in applications %}
-  <p><strong>Client Id: </strong>{{ application.client_id }}</p>
-  <p><strong>Client Secret: </strong>{{ application.client_secret }}</p>
+<p><strong>Client Id: </strong>{{ application.client_id }}</p>
+<p><strong>Client Secret: </strong>{{ application.client_secret }}</p>
+<form action="{% url update_redirect_url %}" method="post">{% csrf_token %}
+  {{ form }}
+  <input type="submit" value="Submit" />
+</form>
 {% endfor %}
 {% endblock %}

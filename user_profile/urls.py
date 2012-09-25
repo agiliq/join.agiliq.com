@@ -6,4 +6,6 @@ urlpatterns = patterns('',
         name='registration_register'),
     url(r'^profile/$', 'user_profile.views.profile_home',
         name='user_profile_home'),
+    url(r'^update_redirect_url/$', 'user_profile.views.update_redirect_url',
+        name='update_redirect_url'),
 )
