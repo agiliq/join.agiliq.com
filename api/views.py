@@ -18,6 +18,8 @@ def resume_upload(request, access_token=None):
         user.first_name = form.cleaned_data["first_name"]
         user.last_name = form.cleaned_data["last_name"]
         user.save()
+        user_profile.projects_url = form.cleaned_data["projects_url"]
+        user_profile.code_url = form.cleaned_data["code_url"]
         Resume.objects.filter(user_profile=user_profile).delete()
         Resume.objects.create(user_profile=user_profile,
                               resume=form.cleaned_data["resume"])
