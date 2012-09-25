@@ -10,7 +10,9 @@ How to apply for a job at agiliq
 * Read the OAuth2_ spec or use an OAuth2 library (example: OAuthlib_) to
   authorize the application at http://join.agiliq.com/oauth/authorize/
 * Exchange the authorization token for an access token at 
-  http://join.agiliq.com/oauth/access_token/
+  http://join.agiliq.com/oauth/access_token/ . In this step, send the
+  ``client_secret`` as an additional param (apart from the standard ones)
+  while exchanging the authorization token for an access token.
 * Using the access token make a multipart post request to 
   http://join.agiliq.com/api/resume/upload/ with the following form fields:
 
