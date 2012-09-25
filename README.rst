@@ -14,15 +14,14 @@ How to apply for a job at agiliq
 * Using the access token make a multipart post request to 
   http://join.agiliq.com/api/resume/upload/ with the following form fields:
 
-  * first_name   # Applicant's (your) first name
-  * last_name    # Applicant's (your) last name
-  * projects_url # Github/Bitbucket/any url where your projects reside
-  * code_url     # The source code url where the code of how you authorized
-                 # your app, exchanged the access token and uploaded your
-		 # resume resides. Make sure to have a README with an optional
-		 # link to your implementation.
-  * resume       # Content of your resume (PDF, ODT, Doc or any other format)
-                 # as a multipart upload.
+  * ``first_name``: Applicant's (your) first name
+  * ``last_name``:  Applicant's (your) last name
+  * ``projects_url``: Github/Bitbucket/any url where your projects reside
+  * ``code_url``: The source code url where the code of how you authorized
+    your app, exchanged the access token and the upload resides. Make sure
+    to have a README with an optional link to your implementation.
+  * ``resume``: Content of your resume (PDF, ODT, Doc or any other format)
+    as a multipart upload.
 
 In case you are stuck, feel free to check out ``application/tests.py``.
 
