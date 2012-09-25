@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from user_profile.forms import RedirectForm
 from django.views.decorators.http import require_POST
 from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 
 @login_required
 def profile_home(request):
