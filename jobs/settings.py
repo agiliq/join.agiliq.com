@@ -131,6 +131,7 @@ INSTALLED_APPS = (
 ACCOUNT_ACTIVATION_DAYS = 7
 AUTH_PROFILE_MODULE = "user_profile.UserProfile"
 AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
     'user_profile.backends.EmailAuthBackend',
 )
 
