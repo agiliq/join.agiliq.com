@@ -3,3 +3,4 @@
 *.pyc
 *local_settings*
 join_agiliq
+static/*

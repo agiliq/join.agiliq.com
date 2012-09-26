@@ -9,4 +9,6 @@ urlpatterns = patterns('',
     url(r'^accounts/', include('registration.urls')),
     url(r'^oauth/', include('application.urls')),
     url(r'^api/', include('api.urls')),
+    url('^pages/', include('django.contrib.flatpages.urls')),
+
 )
