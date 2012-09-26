@@ -1,17 +1,4 @@
 <!DOCTYPE html>
-<html>
-  <head>
-  </head>
-  <body>
-
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="{{STATIC_URL}}bootstrap/js/bootstrap.min.js"></script>
-  </body>
-</html>
-
-
-
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -19,12 +6,6 @@
     <!-- Bootstrap -->
     <link href="{{STATIC_URL}}bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{STATIC_URL}}bootstrap/css/bootstrap.css" rel="stylesheet">
-
-    <style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
-    </style>
   </head>
 
   <body>
@@ -40,16 +21,15 @@
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active"><a href="/">Home</a></li>
-              <li><a href="http://agiliq.com/whoweare">About</a></li>
               <li><a href="http://agiliq.com/contactus">Contact</a></li>
               <li><a href="{% url registration_register %}">Register</a></li>
               <li><a href="/accounts/login/">Login</a></li>
             </ul>
           </div><!--/.nav-collapse -->
- 
         </div>
       </div>
     </div>
+
 
     <div class="container">
         {{ flatpage.content }}
