@@ -1,12 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-<p>Logged in as {{ user.email }}</p>
-<a href="{% url auth_logout %}">Logout</a>
-<p><strong>Client Id: </strong>{{ application.client_id }}</p>
-<p><strong>Client Secret: </strong>{{ application.client_secret }}</p>
-<form action="{% url update_redirect_url %}" method="post">{% csrf_token %}
-  {{ form }}
-  <input type="submit" value="Submit" />
-</form>
+<div class="row">
+  <div class="span5">
+    <p><strong>Client Id: </strong>{{ application.client_id }}</p>
+    <p><strong>Client Secret: </strong>{{ application.client_secret }}</p>
+    <form action="{% url update_redirect_url %}" method="post">{% csrf_token %}
+      {{ form }}
+      <input type="submit" value="Submit" class="btn btn-primary" />
+    </form>
+  </div>
+  <div class="span5 offset1">
+    <p>Logged in as {{ user.email }} (<a href="{% url auth_logout %}">Logout</a>)</p>
+  </div>
+</div>
 {% endblock %}
