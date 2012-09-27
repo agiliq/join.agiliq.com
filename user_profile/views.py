@@ -2,10 +2,11 @@ from django.shortcuts import render_to_response
 from application.models import Application
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
-from user_profile.forms import RedirectForm
+from user_profile.forms import RedirectForm, AuthenticationForm
 from django.views.decorators.http import require_POST
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.contrib.auth.views import login as auth_login
 
 @login_required
 def profile_home(request):
@@ -30,3 +31,6 @@ def update_redirect_url(request):
                               {"application": application,
                                "form": RedirectForm(initial=initial_dict)},
                               context_instance=RequestContext(request))
+
+def login(request):
+    return auth_login(request, authentication_form=AuthenticationForm)

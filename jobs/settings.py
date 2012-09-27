@@ -119,6 +119,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.flatpages',
+
+    'south',
     'registration',
 
     'user_profile',
@@ -129,6 +131,7 @@ INSTALLED_APPS = (
 ACCOUNT_ACTIVATION_DAYS = 7
 AUTH_PROFILE_MODULE = "user_profile.UserProfile"
 AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
     'user_profile.backends.EmailAuthBackend',
 )
 

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8">
-    <title>Agiliq Jobs Portal !</title>
+    <title>
+      {% block title %}{% endblock %}
+    </title>
     <!-- Bootstrap -->
     <link href="{{STATIC_URL}}bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{STATIC_URL}}bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -28,7 +30,7 @@
               <li class="active"><a href="/">Home</a></li>
               <li><a href="http://agiliq.com/contactus">Contact</a></li>
               <li><a href="{% url registration_register %}">Register</a></li>
-              <li><a href="/accounts/login/">Login</a></li>
+              <li><a href="{% url auth_login %}">Login</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -39,6 +41,8 @@
         {% block content %}
         {% endblock %}
     </div> <!-- /container -->
+    {% block js %}
+    {% endblock %}
   </body>
 </html>
 

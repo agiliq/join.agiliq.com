@@ -79,8 +79,16 @@ def oauth_app_authorize(request):
     else:
         params = request.GET.copy()
         form = OAuthApplicationAuthorizationForm(initial=params)
+        try:
+            application = Application.objects.get(client_id=form.initial["client_id"])
+        except Application.DoesNotExist:
+            redirect_url = "%s?%s" %(request.META.get("REFERER", "/"),
+                                     urllib.urlencode({"error": "invalid_client",
+                                                       "error_description": "Invalid Client Id"}))
+            return HttpResponseRedirect(redirect_url)
     return render_to_response("application/authorize.html",
-                              {"form": form},
+                              {"form": form,
+                               "application": application},
                               context_instance=RequestContext(request))
 
 def oauth_access_token(request):

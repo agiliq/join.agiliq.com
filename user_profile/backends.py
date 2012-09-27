@@ -9,7 +9,7 @@ from user_profile.models import UserProfile
 class EmailAuthBackend(ModelBackend):
     supports_inactive_user = False
 
-    def authenticate_user(self, email, password):
+    def authenticate(self, email=None, password=None):
         try:
             user = User.objects.get(email=email)
             if user.check_password(password):
