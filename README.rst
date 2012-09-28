@@ -8,8 +8,9 @@ How to apply for a job at agiliq
   client id, client secret of the OAuth2 application for future reference.
   Add a redirect uri where you will be redirected post the authorization
   and access token.
-* Read the OAuth2_ spec or use an OAuth2 library (example: OAuthlib_) to
-  authorize the application at http://join.agiliq.com/oauth/authorize/
+* Read the OAuth2_ spec or the `Github OAuth flow`_ or use an OAuth2 library 
+  (example: OAuthlib_) to authorize the application at 
+  http://join.agiliq.com/oauth/authorize/
 * Exchange the authorization token for an access token at 
   http://join.agiliq.com/oauth/access_token/ . In this step, send the
   ``client_secret`` as an additional param (apart from the standard ones)
@@ -27,8 +28,7 @@ How to apply for a job at agiliq
   * ``resume``: Content of your resume (PDF, ODT, Doc or any other format)
     as a multipart upload.
 
-In case you are stuck, feel free to check out the `Github OAuth flow`_
-or the ``application/tests.py``.
+In case you are stuck, feel free to check out the ``application/tests.py``.
 
 .. note::
 
