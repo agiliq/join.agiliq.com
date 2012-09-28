@@ -26,7 +26,7 @@ def send_mail_to_admin(sender, **kwargs):
 def send_mail_to_applicant(sender, **kwargs):
     user = kwargs["instance"].user_profile.user
     site = Site.objects.get_current()
-    subject = "Thank you for applying to %s" % site.display_name
+    subject = "Thank you for applying to %s" % site.name
     message = render_to_string("api/application_confirmation.txt",
                                {"resume": kwargs["instance"],
                                 "site": site})
