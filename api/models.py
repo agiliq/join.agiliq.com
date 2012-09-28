@@ -30,7 +30,7 @@ def send_mail_to_applicant(sender, **kwargs):
     message = render_to_string("api/application_confirmation.txt",
                                {"resume": kwargs["instance"],
                                 "site": site})
-    send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, user.email)
+    send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [user.email,])
 
 post_save.connect(send_mail_to_admin, sender=Resume)
 post_save.connect(send_mail_to_applicant, sender=Resume)
