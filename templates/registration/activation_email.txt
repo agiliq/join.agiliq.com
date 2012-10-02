@@ -3,3 +3,10 @@ Please click the link below to activate your {{ site.name }} account:
 Your activation link is valid for 7 days.
 
 http://{{ site.domain }}{% url registration_activate activation_key=activation_key %}
+
+Next Steps:
+
+1. Get your Oauth tokens at http://{{ site.domain }}/accounts/profile/.
+2. Get access tokens and submit your resume using our API.
+
+The code for this site is available at: https://github.com/agiliq/join.agiliq.com
