@@ -50,7 +50,7 @@ class UserProfileTestCase(TestCase):
         user.is_active = True
         user.save()
         resp = self.client.post(reverse("auth_login"),
-                                {"username": "testuser@example.com",
+                                {"email": "testuser@example.com",
                                  "password": "password"})
         self.assertEqual(resp.status_code, 302)
         self.assertEqual(resp["Location"], 
