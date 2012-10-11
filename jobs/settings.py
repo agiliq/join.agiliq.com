@@ -136,6 +136,8 @@ AUTHENTICATION_BACKENDS = (
     'user_profile.backends.EmailAuthBackend',
 )
 
+PROJECT_APPS = ('api', 'application', 'user_profile')
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
