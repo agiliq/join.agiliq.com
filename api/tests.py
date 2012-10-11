@@ -8,11 +8,11 @@ import json
 import urlparse
 
 from django.test import TestCase, client
-from django.core.urlresolvers import reverse
-from user_profile.models import UserProfile
-from django.contrib.auth.models import User
-from application.models import Application, AccessToken
 from django.conf import settings
+from django.contrib.auth.models import User
+from application.models import Application
+from application.models import  AccessToken
+from user_profile.models import UserProfile
 
 
 class APIViewsTestCase(TestCase):
