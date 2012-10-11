@@ -2,5 +2,5 @@ django-registration==0.8
 Django==1.4.1
 South==0.7.6
 django-jenkins==0.13.0
-django-test-coverage==0.2
+django-test-coverage==0.1
 
