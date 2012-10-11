@@ -126,7 +126,6 @@ INSTALLED_APPS = (
     'user_profile',
     'application',
     'api',
-    'django_test_coverage',
     'django_jenkins',
 )
 
