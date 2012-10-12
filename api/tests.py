@@ -40,20 +40,18 @@ class APIViewsTestCase(TestCase):
                                 application=self.application,
                                 token="abcd"
                             )
-        
         f = StringIO.StringIO("Contains Dummy Text")
         f.name = "resume.pdf"
-        self.data = { 'first_name':'FirstName',
-                    'last_name' : 'LastName',
-                    'projects_url':'http://www.example.com/name/projects/',
-                    'code_url':'http://www.example.com/name/projects/1/code/',
+        self.data = {'first_name': 'FirstName',
+                    'last_name': 'LastName',
+                    'projects_url': 'http://www.example.com/name/projects/',
+                    'code_url': 'http://www.example.com/name/projects/1/code/',
                     'resume': f,
                 }
 
-    
     def test_resume_upload(self):
         """
-        ``test_resume_upload`` will make a multipart post request. If this 
+        ``test_resume_upload`` will make a multipart post request. If this
         test Fails it raises an ``AssertionError``
         """
         settings.JOB_MANAGERS = []
@@ -65,28 +63,29 @@ class APIViewsTestCase(TestCase):
         self.assertEqual(resp.status_code, 200)
         resp_content = json.loads(resp.content)['success']
         self.assertEqual(resp_content, True)
-        
+
     def test_resume_upload_missing_access_token(self):
         """
-        ``test_resume_upload_missing_access_token`` will send the data missing 
+        ``test_resume_upload_missing_access_token`` will send the data missing
         access token. It raises ``AssertionError``s if this fails.
         """
         resp = self.client.post('/api/resume/upload/', self.data)
         self.assertEqual(resp.status_code, 302)
         parsed_url = urlparse.urlparse(resp['Location'])
         resp_dict = urlparse.parse_qs(parsed_url.query)
-        self.assertEqual(resp_dict['error_description'], ["Missing Access Token"])
+        self.assertEqual(resp_dict['error_description'], \
+                                    ["Missing Access Token"])
         self.assertEqual(resp_dict['error'], ["invalid_request"])
-        
+
     def test_resume_upload_invalid_access_token(self):
         """
         ``test_resume_upload_invalid_access_token`` will send an invalid access
-        token to the system.        
+        token to the system.
         """
         resp = self.client.post('/api/resume/upload/?access_token=1234',\
                 self.data)
         self.assertEqual(resp.status_code, 302)
-        
+
     def test_resume_upload_no_resume(self):
         """
         ``test_resume_upload_no_resume`` will test for the ``resume`` in data.
@@ -97,7 +96,7 @@ class APIViewsTestCase(TestCase):
                 self.access_token.token, temp_data)
         resp_content = json.loads(resp.content)['resume']
         self.assertEqual(resp_content, ["This field is required."])
-        
+
     def test_resume_upload_invalid_projects_url(self):
         """
         ``test_resume_upload_invalid_projects_url`` will check for valid

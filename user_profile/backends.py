@@ -6,6 +6,7 @@ from registration.backends.default import DefaultBackend
 from .forms import RegistrationForm
 from user_profile.models import UserProfile
 
+
 class EmailAuthBackend(ModelBackend):
     supports_inactive_user = False
 
@@ -16,6 +17,7 @@ class EmailAuthBackend(ModelBackend):
                 return user
         except User.DoesNotExist:
             return None
+
 
 class RegistrationBackend(DefaultBackend):
     def get_form_class(self, request):

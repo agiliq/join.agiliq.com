@@ -7,6 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 import json
 
+
 @csrf_exempt
 @verify_access_token
 @require_POST
@@ -28,4 +29,3 @@ def resume_upload(request, access_token=None):
                             mimetype="application/json")
     return HttpResponse(json.dumps(form.errors),
                         mimetype="application/json")
-

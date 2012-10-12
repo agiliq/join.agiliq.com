@@ -2,6 +2,7 @@ from django.http import HttpResponseRedirect
 from application.models import AccessToken
 import urllib
 
+
 def verify_access_token(fn):
     def inner(request, **kwargs):
         access_token = request.GET.get("access_token")

@@ -5,6 +5,7 @@ from user_profile.models import UserProfile
 from registration.models import RegistrationProfile
 from application.models import Application
 
+
 class UserProfileTestCase(TestCase):
     def test_signup(self):
         resp = self.client.post(reverse("registration_register"),
@@ -12,8 +13,9 @@ class UserProfileTestCase(TestCase):
                                  "password1": "password",
                                  "password2": "password"})
         self.assertEqual(resp.status_code, 302)
-        self.assertEqual(resp["Location"],
-                         "http://testserver%s" % reverse("registration_complete"))
+        self.assertEqual(
+        resp["Location"],
+        "http://testserver%s" % reverse("registration_complete"))
         self.assertEqual(User.objects.count(), 1)
         user = User.objects.get()
         self.assertEqual(user.username, "testuser@example.com")
@@ -30,11 +32,13 @@ class UserProfileTestCase(TestCase):
         self.assertEqual(user.is_active, False)
         self.assertEqual(Application.objects.count(), 0)
         rp = RegistrationProfile.objects.get()
-        resp = self.client.get(reverse("registration_activate",
-                                       kwargs={"activation_key": rp.activation_key}))
+        resp = self.client.get(
+          reverse("registration_activate",
+          kwargs={"activation_key": rp.activation_key}))
         self.assertEqual(resp.status_code, 302)
-        self.assertEqual(resp["Location"],
-                         "http://testserver%s" % reverse("registration_activation_complete"))
+        self.assertEqual(
+         resp["Location"],
+         "http://testserver%s" % reverse("registration_activation_complete"))
         user = User.objects.get()
         self.assertEqual(user.is_active, True)
         self.assertEqual(Application.objects.count(), 1)
@@ -53,5 +57,5 @@ class UserProfileTestCase(TestCase):
                                 {"email": "testuser@example.com",
                                  "password": "password"})
         self.assertEqual(resp.status_code, 302)
-        self.assertEqual(resp["Location"], 
+        self.assertEqual(resp["Location"],
                          "http://testserver%s" % reverse("user_profile_home"))
