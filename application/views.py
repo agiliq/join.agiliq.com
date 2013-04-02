@@ -1,18 +1,22 @@
+import urllib
+import random
+import json
+
 from django.http import HttpResponse, HttpResponseRedirect
 from application.models import Application, AuthorizationCode, \
     CLIENT_PARAMS_SPACE, AccessToken
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
-import urllib
-from application.forms import OAuthApplicationAuthorizationForm
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-import random
-import json
+from django.views.decorators.csrf import csrf_exempt
+
+from application.forms import OAuthApplicationAuthorizationForm
 
 
+@csrf_exempt
 def oauth_authorize(request):
-    client_id = request.GET.get("client_id")
+    client_id = request.REQUEST.get("client_id")
     if not client_id:
         redirect_url = "%s?%s" % (request.META.get("REFERER", "/"),
                                  urllib.urlencode(
@@ -27,7 +31,7 @@ def oauth_authorize(request):
                                  {"error": "invalid_client",
                                  "error_description": "Invalid Client Id"}))
         return HttpResponseRedirect(redirect_url)
-    redirect_uri = request.GET.get("redirect_uri")
+    redirect_uri = request.REQUEST.get("redirect_uri")
     if not redirect_uri:
         redirect_url = "%s?%s" % (
                              application.redirect_uri,
@@ -54,6 +58,7 @@ def generate_token():
          [random.choice(CLIENT_PARAMS_SPACE) for ii in range(0, 50)])
 
 
+@csrf_exempt
 @login_required
 def oauth_app_authorize(request):
     if request.method == "POST":
@@ -98,7 +103,7 @@ def oauth_app_authorize(request):
                  "%s?%s" % (application.redirect_uri,
                             urllib.urlencode(params)))
     else:
-        params = request.GET.copy()
+        params = request.REQUEST.copy()
         form = OAuthApplicationAuthorizationForm(initial=params)
         try:
             application = Application.objects.get(
@@ -116,8 +121,9 @@ def oauth_app_authorize(request):
                               context_instance=RequestContext(request))
 
 
+@csrf_exempt
 def oauth_access_token(request):
-    params = request.GET.copy()
+    params = request.REQUEST.copy()
     client_id = params.get("client_id")
     if not client_id:
         redirect_url = "%s?%s" % (request.META.get("REFERER", "/"),
@@ -133,7 +139,7 @@ def oauth_access_token(request):
                                   {"error": "invalid_request",
                                   "error_description": "Invalid Client Id"}))
         return HttpResponseRedirect(redirect_url)
-    redirect_uri = request.GET.get("redirect_uri")
+    redirect_uri = request.REQUEST.get("redirect_uri")
     if not redirect_uri:
         redirect_url = "%s?%s" % (application.redirect_uri,
                                  urllib.urlencode(
