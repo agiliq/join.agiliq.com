@@ -2,7 +2,10 @@
 
 
 
-<a href='https://coveralls.io/r/agiliq/join.agiliq.com?branch=master'><img src='https://coveralls.io/repos/agiliq/join.agiliq.com/badge.png?branch=master' alt='Coverage Status' /></a> 
+
+.. image:: https://coveralls.io/repos/agiliq/join.agiliq.com/badge.png?branch=master  :target: https://coveralls.io/r/agiliq/join.agiliq.com?branch=master
+
+
 
 
 =================================
