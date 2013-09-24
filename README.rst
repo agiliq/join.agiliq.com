@@ -1,4 +1,4 @@
-.. image:: https://travis-ci.org/agiliq/join.agiliq.com.png?branch=master   :target: https://travis-ci.org/agiliq/join.agiliq.com
+.. image:: https://travis-ci.org/agiliq/join.agiliq.com.png?branch=master   :target: https://travis-ci.org/agiliq/join.agiliq.com        
 
 
 
