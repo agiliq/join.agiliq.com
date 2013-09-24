@@ -1,4 +1,4 @@
-django-registration==0.8
-Django==1.4.1
+django-registration==1.0
+Django==1.5.1
 South==0.7.6
 django-jenkins==0.13.0
