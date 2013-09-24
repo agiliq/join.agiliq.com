@@ -1,6 +1,9 @@
 .. image:: https://travis-ci.org/agiliq/join.agiliq.com.png?branch=master   :target: https://travis-ci.org/agiliq/join.agiliq.com
 
-.. image:: https://coveralls.io/repos/agiliq/join.agiliq.com/badge.png?branch=master :target: https://coveralls.io/r/agiliq/join.agiliq.com?branch=master
+
+
+<a href='https://coveralls.io/r/agiliq/join.agiliq.com?branch=master'><img src='https://coveralls.io/repos/agiliq/join.agiliq.com/badge.png?branch=master' alt='Coverage Status' /></a> 
+
 
 =================================
 How to apply for a job at agiliq
