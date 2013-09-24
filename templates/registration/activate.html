@@ -4,7 +4,7 @@
   {% if account %}
   <h1>Account successfully activated.</h1>
 
-  <p><a href="{% url auth_login %}">Log in</a></p>
+  <p><a href="{% url 'auth_login' %}">Log in</a></p>
 
   {% else %}
   <h1>Account activation failed.</h1>

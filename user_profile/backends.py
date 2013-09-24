@@ -2,7 +2,12 @@ from __future__ import absolute_import
 
 from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth.models import User, check_password
-from registration.backends.default import DefaultBackend
+# from django.contrib.sites.models import Site
+# from django.contrib.sites.models import RequestSite
+
+from registration.backends.default.views import RegistrationView
+# from registration.models import RegistrationProfile
+# from registration.views import RegistrationView
 from .forms import RegistrationForm
 from user_profile.models import UserProfile
 
@@ -19,7 +24,7 @@ class EmailAuthBackend(ModelBackend):
             return None
 
 
-class RegistrationBackend(DefaultBackend):
+class RegistrationBackend(RegistrationView):
     def get_form_class(self, request):
         return RegistrationForm
 
@@ -28,3 +33,4 @@ class RegistrationBackend(DefaultBackend):
         user = super(RegistrationBackend, self).register(request, **kwargs)
         UserProfile.objects.create(user=user)
         return user
+    

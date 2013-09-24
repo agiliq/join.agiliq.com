@@ -2,7 +2,7 @@
 
 {% block content %}
 <h3>Are you sure you want to the authorize the application?</h3>
-<form action="{% url oauth_app_authorize %}" method="post">{% csrf_token %}
+<form action="{% url 'oauth_app_authorize' %}" method="post">{% csrf_token %}
   {{ form }}
   <input type="submit" name="authorized" value="Confirm" />
   <input type="submit" name="authorized" value="Reject" />

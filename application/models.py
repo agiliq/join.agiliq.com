@@ -12,7 +12,7 @@ class Application(BaseAppModel):
     user_profile = models.ForeignKey(UserProfile)
     client_id = models.CharField(max_length=50)
     client_secret = models.CharField(max_length=50)
-    redirect_uri = models.URLField(verify_exists=False, null=True)
+    redirect_uri = models.URLField(null=True)
 
     def __unicode__(self):
         return "%s : %s" % (self.user_profile.user.email, self.client_id)
