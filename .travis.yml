@@ -9,6 +9,6 @@ install:
 # command to run tests
 script: 
   -  python manage.py test api
-  -  coverage run --source="." manage.py test api
+  -  coverage run --source="." manage.py test api application
 after_success:
   - coveralls  
