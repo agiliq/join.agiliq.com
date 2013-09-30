@@ -33,10 +33,10 @@ How to apply for a job at agiliq
 
 In case you are stuck, feel free to check out the ``application/tests.py``.
 
-.. note::
+*note*
 
-    You are free to use any language, library or framework of your choice.
+  You are free to use any language, library or framework of your choice.
 
-.. _OAuth2: http://tools.ietf.org/html/draft-ietf-oauth-v2
-.. _OAuthlib: https://github.com/idan/oauthlib
-.. _`Github OAuth flow`: http://developer.github.com/v3/oauth/#web-application-flow
+ _OAuth2: http://tools.ietf.org/html/draft-ietf-oauth-v2
+ _OAuthlib: https://github.com/idan/oauthlib
+ _`Github OAuth flow`: http://developer.github.com/v3/oauth/#web-application-flow
