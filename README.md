@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/agiliq/join.agiliq.com.png?branch=master)](https://travis-ci.org/agiliq/join.agiliq.com)
 
-
+[![Coverage Status](https://coveralls.io/repos/agiliq/join.agiliq.com/badge.png?branch=master)](https://coveralls.io/r/agiliq/join.agiliq.com?branch=master)
 
 How to apply for a job at agiliq
 =================================
