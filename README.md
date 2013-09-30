@@ -33,7 +33,7 @@ How to apply for a job at agiliq
 
 In case you are stuck, feel free to check out the ``application/tests.py``.
 
-** note  ** :
+**note** 
 
   You are free to use any language, library or framework of your choice.
 
