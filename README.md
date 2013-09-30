@@ -1,8 +1,7 @@
-.. image:: https://travis-ci.org/agiliq/join.agiliq.com.png?branch=master   :target: https://travis-ci.org/agiliq/join.agiliq.com
+[![Build Status](https://travis-ci.org/agiliq/join.agiliq.com.png?branch=master)](https://travis-ci.org/agiliq/join.agiliq.com)
 
 
 
-=================================
 How to apply for a job at agiliq
 =================================
 
