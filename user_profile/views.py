@@ -1,12 +1,13 @@
 from django.shortcuts import render_to_response
-from application.models import Application
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
-from user_profile.forms import RedirectForm, AuthenticationForm
 from django.views.decorators.http import require_POST
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib.auth.views import login as auth_login
+
+from application.models import Application
+from user_profile.forms import RedirectForm, AuthenticationForm
 
 
 @login_required
