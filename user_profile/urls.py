@@ -1,5 +1,7 @@
 from django.conf.urls import patterns, include, url
+
 from registration.backends.default.views import RegistrationView
+
 
 urlpatterns = patterns('',
     url(r'^register/$', RegistrationView.as_view(),
