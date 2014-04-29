@@ -1,8 +1,10 @@
 from django.conf.urls import patterns, include, url
-from registration.backends.default.views import RegistrationView
+
+from user_profile.backends import RegistrationBackend
+
 
 urlpatterns = patterns('',
-    url(r'^register/$', RegistrationView.as_view(),
+    url(r'^register/$', RegistrationBackend.as_view(),
         {'backend': 'user_profile.backends.RegistrationBackend'},
         name='registration_register'),
     url(r'^login/$', 'user_profile.views.login',

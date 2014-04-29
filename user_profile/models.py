@@ -1,6 +1,7 @@
 from django.db import models
-from utils.models import BaseAppModel
 from django.contrib.auth.models import User
+
+from utils.models import BaseAppModel
 
 
 class UserProfile(BaseAppModel):
