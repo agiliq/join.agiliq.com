@@ -1,5 +1,5 @@
 Hello {{ resume.user_profile.user.get_full_name }},
-Thank you for applying to {{ site.display_name }} for a job and congratulations
+Thank you for applying to {{ site.name }} for a job and congratulations
 on completing your first task.
 
 We shall get back to you shortly after checking your solution.
