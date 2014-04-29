@@ -1,6 +1,8 @@
-from django.http import HttpResponseRedirect
-from application.models import AccessToken
 import urllib
+
+from django.http import HttpResponseRedirect
+
+from application.models import AccessToken
 
 
 def verify_access_token(fn):

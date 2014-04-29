@@ -1,11 +1,13 @@
-from utils.views import verify_access_token
-from api.forms import ResumeUploadForm
-from api.models import Resume
+import json
+
 from django.views.decorators.http import require_POST
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
-import json
+
+from api.forms import ResumeUploadForm
+from api.models import Resume
+from utils.views import verify_access_token
 
 
 @csrf_exempt
