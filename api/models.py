@@ -1,3 +1,6 @@
+from redis import Redis
+from rq import Queue
+
 from django.db import models
 from django.db.models.signals import post_save
 from django.core.mail import send_mail
@@ -7,6 +10,8 @@ from django.conf import settings
 
 from utils.models import BaseAppModel
 from user_profile.models import UserProfile
+
+q = Queue(connection=Redis())
 
 
 class Resume(BaseAppModel):
@@ -23,7 +28,7 @@ def send_mail_to_admin(sender, **kwargs):
     message = render_to_string("api/application_message.txt",
                                {"resume": kwargs["instance"],
                                 "site": Site.objects.get_current()})
-    send_mail(subject, message, settings.DEFAULT_FROM_EMAIL,
+    q.enqueue(send_mail, subject, message, settings.DEFAULT_FROM_EMAIL,
               settings.JOB_MANAGERS)
 
 
@@ -34,7 +39,7 @@ def send_mail_to_applicant(sender, **kwargs):
     message = render_to_string("api/application_confirmation.txt",
                                {"resume": kwargs["instance"],
                                 "site": site})
-    send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [user.email])
+    q.enqueue(send_mail, subject, message, settings.DEFAULT_FROM_EMAIL, [user.email])
 
 post_save.connect(send_mail_to_admin, sender=Resume)
 post_save.connect(send_mail_to_applicant, sender=Resume)
