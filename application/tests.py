@@ -115,7 +115,7 @@ class OAuthv2TestCase(TestCase):
                          "%s?%s" % (self.application.redirect_uri,
                          urllib.urlencode(
                          {"error": "access_denied",
-                         "error_description": "User" +\
+                         "error_description": "User " +\
                           "has rejected the authorization"})))
 
     def test_authorize_url_pass_state_correctly(self):
