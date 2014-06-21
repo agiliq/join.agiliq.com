@@ -79,7 +79,7 @@ def oauth_app_authorize(request):
                           "%s?%s" % (
                                  application.redirect_uri,
                                  urllib.urlencode({"error": "access_denied",
-                                 "error_description": "User" + \
+                                 "error_description": "User " + \
                                   "has rejected the authorization"})))
             if application.redirect_uri != form.cleaned_data["redirect_uri"]:
                 redirect_url = "%s?%s" % (application.redirect_uri or "",
