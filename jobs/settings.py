@@ -170,4 +170,4 @@ LOGGING = {
 try:
     from .local_settings import *
 except ImportError:
-    print "local_settings.py file doesn't exists....."
+    print "local_settings.py file doesn't exist....."
