@@ -102,12 +102,19 @@ def oauth_app_authorize(request):
             return HttpResponseRedirect(
                  "%s?%s" % (application.redirect_uri,
                             urllib.urlencode(params)))
+        else:
+            redirect_url = "%s?%s" % (request.META.get("REFERER", "/"),
+                                     urllib.urlencode(
+                                     {"error": "invalid_data",
+                                     "error_" + \
+                                     "description": "Invalid Client Id or Redirect Url"}))
+            return HttpResponseRedirect(redirect_url)
     else:
         params = request.REQUEST.copy()
         form = OAuthApplicationAuthorizationForm(initial=params)
         try:
             application = Application.objects.get(
-                          client_id=form.initial["client_id"])
+                          client_id=form.initial.get("client_id", ""))
         except Application.DoesNotExist:
             redirect_url = "%s?%s" % (request.META.get("REFERER", "/"),
                                       urllib.urlencode(
