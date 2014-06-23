@@ -5,3 +5,4 @@ South==0.7.6
 redis==2.9.1
 rq==0.4.2
 Unipath==1.0
+Fabric==1.9.0
