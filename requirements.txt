@@ -1,7 +1,7 @@
 django-registration==1.0
 Django==1.5.1
 South==0.7.6
-django-jenkins==0.13.0
+# django-jenkins==0.13.0
 redis==2.9.1
 rq==0.4.2
 Unipath==1.0
