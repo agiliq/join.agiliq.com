@@ -14,9 +14,11 @@ DATABASES = {
     }
 }
 
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_PORT = 587
-EMAIL_HOST_USER = "test599702@gmail.com"
-EMAIL_HOST_PASSWORD = '9746599702'
+
+EMAIL_HOST_USER = get_env_variable('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = get_env_variable('EMAIL_HOST_PASSWORD')
+
+# Email settings
 EMAIL_USE_TLS = True
-EMAIL_SUBJECT_PREFIX = "[DEV_AGILIQ] "
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
