@@ -1,5 +1,9 @@
 # Django settings for jobs project.
 import os
+from unipath import Path
+from django.core.exceptions import ImproperlyConfigured
+
+SITE_PATH = Path(__file__).ancestor(3)
 
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
@@ -10,16 +14,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'join_agiliq.db',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }
-}
+
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -77,7 +72,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    # 'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -87,7 +82,7 @@ SECRET_KEY = 'j9_!h*y7t+fc83v$#jp2#exga!r9p-xx9qlpx84@t-@7k%hvpz'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    # 'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -107,7 +102,7 @@ ROOT_URLCONF = 'jobs.urls'
 WSGI_APPLICATION = 'jobs.wsgi.application'
 
 TEMPLATE_DIRS = (
-    os.path.join(os.path.dirname(__file__), "../templates"),
+    SITE_PATH.child('templates'),
 )
 
 INSTALLED_APPS = (
@@ -167,7 +162,10 @@ LOGGING = {
     }
 }
 
-try:
-    from .local_settings import *
-except ImportError:
-    print "local_settings.py file doesn't exist....."
+
+def get_env_variable(var_name):
+    try:
+        return os.environ[var_name]
+    except KeyError:
+        error_msg = "Set %s environment variable" % (var_name,)
+        raise ImproperlyConfigured(error_msg)
