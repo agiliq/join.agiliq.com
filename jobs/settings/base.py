@@ -121,7 +121,6 @@ INSTALLED_APPS = (
     'user_profile',
     'application',
     'api',
-    # 'django_jenkins',
 )
 
 ACCOUNT_ACTIVATION_DAYS = 7
