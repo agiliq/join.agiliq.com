@@ -22,7 +22,7 @@ def test():
 
 def restart():
     print("Restarting Gunicorn...")
-    run("~/gunicorn_restart.sh")
+    run("~/gunicorn_restart.sh", pty=False)
     print("Gunicorn Restarted...\n")
 
 
