@@ -1,19 +1,16 @@
 from .base import *
 
-import os
-
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ("Shabda Raaj", "shabda@agiliq.com"),
-    # ("Akshar Raaj", "akshar@agiliq.com"),
-    ("Ashik S", "ashik@agiliq.com"),
+    ("Shabda Raaj", "shabda@agiliq.com"),
+    ("Akshar Raaj", "akshar@agiliq.com"),
 )
 
-# JOB_MANAGERS = (
-#     "shabda@agiliq.com",
-# )
+JOB_MANAGERS = (
+    "shabda@agiliq.com",
+)
 
 DB_NAME = get_env_variable('DB_NAME')
 DB_USER = get_env_variable('DB_USER')
