@@ -1,6 +1,8 @@
 language: python
 python:
   - "2.7"
+env:
+  - EMAIL_HOST_USER=abc@def.com EMAIL_HOST_PASSWORD=ae34#e
 # command to install dependencies
 install: 
   -  pip install -r requirements.txt --use-mirrors
