@@ -15,19 +15,23 @@ ADMINS = (
 #     "shabda@agiliq.com",
 # )
 
+DB_NAME = get_env_variable('DB_NAME')
+DB_USER = get_env_variable('DB_USER')
+DB_PASSWORD = get_env_variable('DB_PASSWORD')
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'join_agiliq.db',        # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': DB_NAME,                 # Or path to database file if using sqlite3.
+        'USER': DB_USER,                 # Not used with sqlite3.
+        'PASSWORD': DB_PASSWORD,         # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
 
 SECRET_KEY = get_env_variable('SECRET_KEY')
-ALLOWED_HOSTS = ['join.agiliq.com', '127.0.0.1']
+ALLOWED_HOSTS = ['join.agiliq.com']
 
 MEDIA_ROOT = SITE_PATH.child('media')
 MEDIA_URL = "/media/"
