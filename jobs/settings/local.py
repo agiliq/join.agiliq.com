@@ -14,6 +14,7 @@ DATABASES = {
     }
 }
 
+SECRET_KEY = get_env_variable('SECRET_KEY')
 
 EMAIL_HOST_USER = get_env_variable('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = get_env_variable('EMAIL_HOST_PASSWORD')
